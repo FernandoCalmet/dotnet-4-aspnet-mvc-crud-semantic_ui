@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Web Application with ASP.NET</title>
+    @Styles.Render("~/Content/semantic_css")  
+</head>
+<body>  
+    @RenderBody()    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/semantic_js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

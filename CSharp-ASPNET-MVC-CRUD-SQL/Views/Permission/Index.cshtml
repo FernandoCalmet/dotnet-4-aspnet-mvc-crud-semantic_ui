@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CSharp_ASPNET_MVC_CRUD_SQL.Models.Permissions>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutServices.cshtml";
+}
+
+<h1 class="ui header">Permission Index</h1>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="ui teal celled striped table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Operations.id_operation)
+            </th>
+            <th>
+                operation_@Html.DisplayNameFor(model => model.Operations.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Roles.id_role)
+            </th>
+            <th>
+                role_@Html.DisplayNameFor(model => model.Roles.name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operations.id_operation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operations.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roles.id_role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roles.name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_permission }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_permission }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_permission })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

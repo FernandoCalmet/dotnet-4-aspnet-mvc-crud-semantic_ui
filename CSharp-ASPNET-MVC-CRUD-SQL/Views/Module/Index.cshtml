@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CSharp_ASPNET_MVC_CRUD_SQL.Models.Modules>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutServices.cshtml";
+}
+
+<h1 class="ui header">Modules Index</h1>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="ui teal celled striped table">
+    <thead>
+        <tr>
+            <th colspan="2">Modules</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_module)
+            </th>
+            <th>
+                module_@Html.DisplayNameFor(model => model.name)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_module)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_module }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_module }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_module })
+        </td>
+    </tr>
+        }
+    </tbody>            
+</table>

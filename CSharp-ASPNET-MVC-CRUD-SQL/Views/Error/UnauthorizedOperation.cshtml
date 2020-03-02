@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "UnauthorizedOperation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Error, this user role is not authorized for this view.</h1>
+</section>
+<section class="content">
+    <div class="error-page">
+        <div class="error-content">
+            <h3><i class="fa fa-warning text-red"></i>Without authorization</h3>
+            @if (ViewBag.operation != "")
+            {
+                <p>Operation @ViewBag.operation</p>
+            }
+            @if (ViewBag.module != "")
+            {
+                <p>Module @ViewBag.module</p>
+            }
+            @if (ViewBag.errorMsgException != "")
+            {
+                <p>Error @ViewBag.errorMsgException</p>
+            }
+        </div>
+    </div>
+</section>
+

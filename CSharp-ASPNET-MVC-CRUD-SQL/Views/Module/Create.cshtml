@@ -1,0 +1,26 @@
+﻿@model CSharp_ASPNET_MVC_CRUD_SQL.Models.Modules
+
+@{
+    ViewBag.Title = "Create Module";
+    Layout = "~/Views/Shared/_LayoutServices.cshtml";
+}
+
+<h1 class="ui header">Create Module</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>@Html.ValidationSummary(true, "", new { @class = "ui info message" })</p>
+    <form class="ui form">      
+        <div class="field">            
+            <label>@Html.LabelFor(model => model.name)</label>            
+            @Html.EditorFor(model => model.name)            
+            @Html.ValidationMessageFor(model => model.name)
+        </div>  
+        <button class="ui button" type="submit">Submit</button>
+    </form>     
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Module Index")
+</div>

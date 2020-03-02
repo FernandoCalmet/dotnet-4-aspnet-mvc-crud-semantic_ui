@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CSharp_ASPNET_MVC_CRUD_SQL.Models.Operations>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutServices.cshtml";
+}
+
+<h1 class="ui header">Operation Index</h1>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="ui teal celled striped table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_operation)
+            </th>
+            <th>
+                operation_@Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modules.id_module)
+            </th>
+            <th>
+                module_@Html.DisplayNameFor(model => model.Modules.name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_operation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modules.id_module)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modules.name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_operation }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_operation }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_operation })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

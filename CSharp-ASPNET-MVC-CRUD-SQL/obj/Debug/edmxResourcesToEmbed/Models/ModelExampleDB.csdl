@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExampleDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Modules">
+    <Key>
+      <PropertyRef Name="id_module" />
+    </Key>
+    <Property Name="id_module" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Operations" Relationship="Self.FK_Operations_Modules" FromRole="Modules" ToRole="Operations" />
+  </EntityType>
+  <EntityType Name="Operations">
+    <Key>
+      <PropertyRef Name="id_operation" />
+    </Key>
+    <Property Name="id_operation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_module" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Modules" Relationship="Self.FK_Operations_Modules" FromRole="Operations" ToRole="Modules" />
+    <NavigationProperty Name="Permissions" Relationship="Self.FK_Permissions_Operations" FromRole="Operations" ToRole="Permissions" />
+  </EntityType>
+  <EntityType Name="Permissions">
+    <Key>
+      <PropertyRef Name="id_permission" />
+    </Key>
+    <Property Name="id_permission" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_role" Type="Int32" Nullable="false" />
+    <Property Name="id_operation" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Operations" Relationship="Self.FK_Permissions_Operations" FromRole="Permissions" ToRole="Operations" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK_Permissions_Roles" FromRole="Permissions" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="id_role" />
+    </Key>
+    <Property Name="id_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Permissions" Relationship="Self.FK_Permissions_Roles" FromRole="Roles" ToRole="Permissions" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_role" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <Association Name="FK_Operations_Modules">
+    <End Role="Modules" Type="Self.Modules" Multiplicity="1" />
+    <End Role="Operations" Type="Self.Operations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modules">
+        <PropertyRef Name="id_module" />
+      </Principal>
+      <Dependent Role="Operations">
+        <PropertyRef Name="id_module" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permissions_Operations">
+    <End Role="Operations" Type="Self.Operations" Multiplicity="1" />
+    <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operations">
+        <PropertyRef Name="id_operation" />
+      </Principal>
+      <Dependent Role="Permissions">
+        <PropertyRef Name="id_operation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permissions_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="id_role" />
+      </Principal>
+      <Dependent Role="Permissions">
+        <PropertyRef Name="id_role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="id_role" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="id_role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ExampleDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Modules" EntityType="Self.Modules" />
+    <EntitySet Name="Operations" EntityType="Self.Operations" />
+    <EntitySet Name="Permissions" EntityType="Self.Permissions" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Operations_Modules" Association="Self.FK_Operations_Modules">
+      <End Role="Modules" EntitySet="Modules" />
+      <End Role="Operations" EntitySet="Operations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permissions_Operations" Association="Self.FK_Permissions_Operations">
+      <End Role="Operations" EntitySet="Operations" />
+      <End Role="Permissions" EntitySet="Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permissions_Roles" Association="Self.FK_Permissions_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Permissions" EntitySet="Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

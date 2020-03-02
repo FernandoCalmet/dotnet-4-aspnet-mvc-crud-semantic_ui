@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h2 class="ui teal image header">
+            <img src="@Url.Content("~/Content/themes/default/assets/images/logo.png")" class="image">
+        </h2>
+        <div class="content"> Log-in to your account </div>
+        <form class="ui large form" action="@Url.Content("~/SignIn/Login")" method="post">
+            <div class="ui stacked segment">
+                <div class="ui mini message">@ViewBag.Error</div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="txtUser" placeholder="E-mail address">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="txtPassword" placeholder="Password">
+                    </div>
+                </div>
+                <button type="submit" class="positive ui button">Login</button>
+            </div>
+
+            <div class="ui error message"></div>
+
+        </form>
+
+        <div class="ui message">
+            New to us? <a href="#">Sign Up</a>
+        </div>
+    </div>
+</div>

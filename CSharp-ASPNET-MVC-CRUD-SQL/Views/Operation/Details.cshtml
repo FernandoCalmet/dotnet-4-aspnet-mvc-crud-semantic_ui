@@ -1,0 +1,35 @@
+﻿@model CSharp_ASPNET_MVC_CRUD_SQL.Models.Operations
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutServices.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Operations</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modules.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modules.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_operation }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

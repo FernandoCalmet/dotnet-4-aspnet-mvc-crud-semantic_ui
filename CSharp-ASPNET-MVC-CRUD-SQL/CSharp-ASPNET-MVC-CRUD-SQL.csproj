@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD006627-1778-4BFA-AE12-15824092E3AD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSharp_ASPNET_MVC_CRUD_SQL</RootNamespace>
+    <AssemblyName>CSharp-ASPNET-MVC-CRUD-SQL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44373</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\Extra\BlogController.cs" />
+    <Compile Include="Controllers\Extra\DashboardController.cs" />
+    <Compile Include="Controllers\Extra\FixedMenuController.cs" />
+    <Compile Include="Controllers\Extra\StickyMenuController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ModuleController.cs" />
+    <Compile Include="Controllers\OperationController.cs" />
+    <Compile Include="Controllers\PermissionController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\SignInController.cs" />
+    <Compile Include="Controllers\SignOutController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\UserRoleProvider.cs" />
+    <Compile Include="Filters\VerifyAuth.cs" />
+    <Compile Include="Filters\VerifySession.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelExampleDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelExampleDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelExampleDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelExampleDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelExampleDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelExampleDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Modules.cs">
+      <DependentUpon>ModelExampleDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Operations.cs">
+      <DependentUpon>ModelExampleDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Permissions.cs">
+      <DependentUpon>ModelExampleDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Roles.cs">
+      <DependentUpon>ModelExampleDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>ModelExampleDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>ModelExampleDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\components\accordion.css" />
+    <Content Include="Content\components\accordion.js" />
+    <Content Include="Content\components\accordion.min.css" />
+    <Content Include="Content\components\accordion.min.js" />
+    <Content Include="Content\components\ad.css" />
+    <Content Include="Content\components\ad.min.css" />
+    <Content Include="Content\components\api.js" />
+    <Content Include="Content\components\api.min.js" />
+    <Content Include="Content\components\breadcrumb.css" />
+    <Content Include="Content\components\breadcrumb.min.css" />
+    <Content Include="Content\components\button.css" />
+    <Content Include="Content\components\button.min.css" />
+    <Content Include="Content\components\card.css" />
+    <Content Include="Content\components\card.min.css" />
+    <Content Include="Content\components\checkbox.css" />
+    <Content Include="Content\components\checkbox.js" />
+    <Content Include="Content\components\checkbox.min.css" />
+    <Content Include="Content\components\checkbox.min.js" />
+    <Content Include="Content\components\colorize.js" />
+    <Content Include="Content\components\colorize.min.js" />
+    <Content Include="Content\components\comment.css" />
+    <Content Include="Content\components\comment.min.css" />
+    <Content Include="Content\components\container.css" />
+    <Content Include="Content\components\container.min.css" />
+    <Content Include="Content\components\dimmer.css" />
+    <Content Include="Content\components\dimmer.js" />
+    <Content Include="Content\components\dimmer.min.css" />
+    <Content Include="Content\components\dimmer.min.js" />
+    <Content Include="Content\components\divider.css" />
+    <Content Include="Content\components\divider.min.css" />
+    <Content Include="Content\components\dropdown.css" />
+    <Content Include="Content\components\dropdown.js" />
+    <Content Include="Content\components\dropdown.min.css" />
+    <Content Include="Content\components\dropdown.min.js" />
+    <Content Include="Content\components\embed.css" />
+    <Content Include="Content\components\embed.js" />
+    <Content Include="Content\components\embed.min.css" />
+    <Content Include="Content\components\embed.min.js" />
+    <Content Include="Content\components\feed.css" />
+    <Content Include="Content\components\feed.min.css" />
+    <Content Include="Content\components\flag.css" />
+    <Content Include="Content\components\flag.min.css" />
+    <Content Include="Content\components\form.css" />
+    <Content Include="Content\components\form.js" />
+    <Content Include="Content\components\form.min.css" />
+    <Content Include="Content\components\form.min.js" />
+    <Content Include="Content\components\grid.css" />
+    <Content Include="Content\components\grid.min.css" />
+    <Content Include="Content\components\header.css" />
+    <Content Include="Content\components\header.min.css" />
+    <Content Include="Content\components\icon.css" />
+    <Content Include="Content\components\icon.min.css" />
+    <Content Include="Content\components\image.css" />
+    <Content Include="Content\components\image.min.css" />
+    <Content Include="Content\components\input.css" />
+    <Content Include="Content\components\input.min.css" />
+    <Content Include="Content\components\item.css" />
+    <Content Include="Content\components\item.min.css" />
+    <Content Include="Content\components\label.css" />
+    <Content Include="Content\components\label.min.css" />
+    <Content Include="Content\components\list.css" />
+    <Content Include="Content\components\list.min.css" />
+    <Content Include="Content\components\loader.css" />
+    <Content Include="Content\components\loader.min.css" />
+    <Content Include="Content\components\menu.css" />
+    <Content Include="Content\components\menu.min.css" />
+    <Content Include="Content\components\message.css" />
+    <Content Include="Content\components\message.min.css" />
+    <Content Include="Content\components\modal.css" />
+    <Content Include="Content\components\modal.js" />
+    <Content Include="Content\components\modal.min.css" />
+    <Content Include="Content\components\modal.min.js" />
+    <Content Include="Content\components\nag.css" />
+    <Content Include="Content\components\nag.js" />
+    <Content Include="Content\components\nag.min.css" />
+    <Content Include="Content\components\nag.min.js" />
+    <Content Include="Content\components\popup.css" />
+    <Content Include="Content\components\popup.js" />
+    <Content Include="Content\components\popup.min.css" />
+    <Content Include="Content\components\popup.min.js" />
+    <Content Include="Content\components\progress.css" />
+    <Content Include="Content\components\progress.js" />
+    <Content Include="Content\components\progress.min.css" />
+    <Content Include="Content\components\progress.min.js" />
+    <Content Include="Content\components\rail.css" />
+    <Content Include="Content\components\rail.min.css" />
+    <Content Include="Content\components\rating.css" />
+    <Content Include="Content\components\rating.js" />
+    <Content Include="Content\components\rating.min.css" />
+    <Content Include="Content\components\rating.min.js" />
+    <Content Include="Content\components\reset.css" />
+    <Content Include="Content\components\reset.min.css" />
+    <Content Include="Content\components\reveal.css" />
+    <Content Include="Content\components\reveal.min.css" />
+    <Content Include="Content\components\search.css" />
+    <Content Include="Content\components\search.js" />
+    <Content Include="Content\components\search.min.css" />
+    <Content Include="Content\components\search.min.js" />
+    <Content Include="Content\components\segment.css" />
+    <Content Include="Content\components\segment.min.css" />
+    <Content Include="Content\components\shape.css" />
+    <Content Include="Content\components\shape.js" />
+    <Content Include="Content\components\shape.min.css" />
+    <Content Include="Content\components\shape.min.js" />
+    <Content Include="Content\components\sidebar.css" />
+    <Content Include="Content\components\sidebar.js" />
+    <Content Include="Content\components\sidebar.min.css" />
+    <Content Include="Content\components\sidebar.min.js" />
+    <Content Include="Content\components\site.css" />
+    <Content Include="Content\components\site.js" />
+    <Content Include="Content\components\site.min.css" />
+    <Content Include="Content\components\site.min.js" />
+    <Content Include="Content\components\state.js" />
+    <Content Include="Content\components\state.min.js" />
+    <Content Include="Content\components\statistic.css" />
+    <Content Include="Content\components\statistic.min.css" />
+    <Content Include="Content\components\step.css" />
+    <Content Include="Content\components\step.min.css" />
+    <Content Include="Content\components\sticky.css" />
+    <Content Include="Content\components\sticky.js" />
+    <Content Include="Content\components\sticky.min.css" />
+    <Content Include="Content\components\sticky.min.js" />
+    <Content Include="Content\components\tab.css" />
+    <Content Include="Content\components\tab.js" />
+    <Content Include="Content\components\tab.min.css" />
+    <Content Include="Content\components\tab.min.js" />
+    <Content Include="Content\components\table.css" />
+    <Content Include="Content\components\table.min.css" />
+    <Content Include="Content\components\transition.css" />
+    <Content Include="Content\components\transition.js" />
+    <Content Include="Content\components\transition.min.css" />
+    <Content Include="Content\components\transition.min.js" />
+    <Content Include="Content\components\video.css" />
+    <Content Include="Content\components\video.js" />
+    <Content Include="Content\components\video.min.css" />
+    <Content Include="Content\components\video.min.js" />
+    <Content Include="Content\components\visibility.js" />
+    <Content Include="Content\components\visibility.min.js" />
+    <Content Include="Content\components\visit.js" />
+    <Content Include="Content\components\visit.min.js" />
+    <Content Include="Content\semantic.css" />
+    <Content Include="Content\semantic.min.css" />
+    <Content Include="Content\themes\basic\assets\fonts\icons.svg" />
+    <Content Include="Content\themes\default\assets\fonts\icons.svg" />
+    <Content Include="Content\themes\default\assets\images\avatar\ade.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\chris.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\christian.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\daniel.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\elliot.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\helen.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\jenny.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\joe.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\justen.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\laura.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\nan.jpg" />
+    <Content Include="Content\themes\default\assets\images\avatar\tom.jpg" />
+    <Content Include="Content\themes\default\assets\images\bg.jpg" />
+    <Content Include="Content\themes\default\assets\images\flags.png" />
+    <Content Include="Content\themes\default\assets\images\logo.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\centered-paragraph.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\image-square.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\image-text.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\image.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\media-paragraph-alt.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\media-paragraph.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\paragraph.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\short-paragraph.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\square-image.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\text-image.png" />
+    <Content Include="Content\themes\default\assets\images\wireframe\white-image.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\ModelExampleDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelExampleDB.edmx</DependentUpon>
+      <LastGenOutput>ModelExampleDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelExampleDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelExampleDB.edmx</DependentUpon>
+      <LastGenOutput>ModelExampleDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\ModelExampleDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelExampleDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelExampleDB.edmx.diagram">
+      <DependentUpon>ModelExampleDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\themes\default\assets\fonts\icons.woff2" />
+    <Content Include="Content\themes\default\assets\fonts\icons.woff" />
+    <Content Include="Content\themes\default\assets\fonts\icons.ttf" />
+    <Content Include="Content\themes\default\assets\fonts\icons.otf" />
+    <Content Include="Content\themes\default\assets\fonts\icons.eot" />
+    <Content Include="Content\themes\basic\assets\fonts\icons.woff" />
+    <Content Include="Content\themes\basic\assets\fonts\icons.ttf" />
+    <Content Include="Content\themes\basic\assets\fonts\icons.eot" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\semantic.js" />
+    <Content Include="Scripts\semantic.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\SignIn\Login.cshtml" />
+    <Content Include="Views\SignOut\Logout.cshtml" />
+    <Content Include="Views\Module\Create.cshtml" />
+    <Content Include="Views\Module\Delete.cshtml" />
+    <Content Include="Views\Module\Details.cshtml" />
+    <Content Include="Views\Module\Edit.cshtml" />
+    <Content Include="Views\Module\Index.cshtml" />
+    <Content Include="Views\Operation\Create.cshtml" />
+    <Content Include="Views\Operation\Delete.cshtml" />
+    <Content Include="Views\Operation\Details.cshtml" />
+    <Content Include="Views\Operation\Edit.cshtml" />
+    <Content Include="Views\Operation\Index.cshtml" />
+    <Content Include="Views\Permission\Create.cshtml" />
+    <Content Include="Views\Permission\Delete.cshtml" />
+    <Content Include="Views\Permission\Details.cshtml" />
+    <Content Include="Views\Permission\Edit.cshtml" />
+    <Content Include="Views\Permission\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\Role\Details.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Error\UnauthorizedOperation.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\StickyMenu\Index.cshtml" />
+    <Content Include="Views\FixedMenu\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutServices.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63529</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44373/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
