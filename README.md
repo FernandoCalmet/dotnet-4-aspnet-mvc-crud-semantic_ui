@@ -1,23 +1,64 @@
-# CSharp-ASPNET-MVC-CRUD-SQL
-> Autor : Fernando Calmet  
-https://github.com/fernandocalmet  
+# DOTNET-4-ASPNET-MVC-CRUD-SemanticUI
 
-### Aplicación MVC CRUD con ASP.NET C# (.NET Framework) + ADO.NET + SQLServer + Semantic UI
+[![Github][github-shield]][github-url]
+[![Kofi][kofi-shield]][kofi-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Khanakat][khanakat-shield]][khanakat-url]
 
-## Completado:
-- Iniciar sesión y Cerrar Sesión
-- Validación de Login
-- Autenticación de permisos de usuarios
-- CRUD de las entidades relacionales
-- Plantillas de demostración de Semantic UI
+## 📓 TABLA DE CONTENIDO
 
-## En proceso:
-- Validación de campos CRUD
-- Implementación de algunos estilos de Semantic UI en los Views
+* [Acerca del proyecto](#acerca-del-proyecto)
+* [Características](#características)
+* [Instalación](#instalación)
+* [Demostración](#demo)
+* [Licencia](#licencia)
+
+## 🔥 ACERCA DEL PROYECTO
+
+Este proyecto es una muestra de una solución base de `MVC + CRUD + Semantic UI` utilizando `C# ASP.NET 4 + ADO.NET + SQL SERVER`.
+
+## ✔️ CARACTERÍSTICAS
+
+- [x] Iniciar sesión y Cerrar Sesión
+- [x] Validación de Login
+- [x] Autenticación de permisos de usuarios
+- [x] CRUD de las entidades relacionales
+- [x] Plantillas de demostración de Semantic UI
+- [ ] Validación de campos CRUD
+- [ ] Implementación de algunos estilos de Semantic UI en los Views
+
+## ⚙️ INSTALACIÓN
+
+Clonar el repositorio.
+
+```bash
+gh repo clone FernandoCalmet/DOTNET-4-ASPNET-MVC-CRUD-SemanticUI
+```
+
+Ejecutar aplicación.
+
+```bash
+dotnet run
+```
+
+## 📥 DEMO
 
 ![Demo](docs/demo.gif)
 
-## BUY ME A COFFEE :-)
-<a href='https://ko-fi.com/fernandocalmet' target='_blank'>
-  <img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' />
-</a>
+## 📄 LICENCIA
+
+Este proyecto está bajo la Licencia (Licencia MIT) - mire el archivo [LICENSE](LICENSE) para más detalles.
+
+## ⭐️ DAME UNA ESTRELLA
+
+Si esta Implementación le resultó útil o la utilizó en sus Proyectos, déle una estrella. ¡Gracias! O, si te sientes realmente generoso, [¡Apoye el proyecto con una pequeña contribución!](https://ko-fi.com/fernandocalmet).
+
+<!--- reference style links --->
+[github-shield]: https://img.shields.io/badge/-@fernandocalmet-%23181717?style=flat-square&logo=github
+[github-url]: https://github.com/fernandocalmet
+[kofi-shield]: https://img.shields.io/badge/-@fernandocalmet-%231DA1F2?style=flat-square&logo=kofi&logoColor=ff5f5f
+[kofi-url]: https://ko-fi.com/fernandocalmet
+[linkedin-shield]: https://img.shields.io/badge/-fernandocalmet-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fernandocalmet
+[linkedin-url]: https://www.linkedin.com/in/fernandocalmet
+[khanakat-shield]: https://img.shields.io/badge/khanakat.com-brightgreen?style=flat-square
+[khanakat-url]: https://khanakat.com
