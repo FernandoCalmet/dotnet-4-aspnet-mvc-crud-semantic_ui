@@ -32,7 +32,7 @@ Este proyecto es una muestra de una solución base de `MVC + CRUD + Semantic UI`
 Clonar el repositorio.
 
 ```bash
-gh repo clone FernandoCalmet/DOTNET-4-ASPNET-MVC-CRUD-SemanticUI
+gh repo clone FernandoCalmet/dotnet-4-aspnet-mvc-crud-semantic_ui
 ```
 
 Ejecutar aplicación.
